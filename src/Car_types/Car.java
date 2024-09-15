@@ -1,6 +1,9 @@
 package Car_types;
 
 import Components.*;
+import Factory.Country;
+
+import java.math.BigDecimal;
 
 public abstract class Car {
     protected String color;
@@ -13,8 +16,10 @@ public abstract class Car {
     protected Engine engine;
     protected Electrics electrics;
     protected Headlights headlights;
+    protected BigDecimal price;
+    protected final Country COUNTRY;
 
-    public Car(String color, int maxSpeed, Transmission transmissionType, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights) {
+    public Car(String color, int maxSpeed, Transmission transmissionType, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmissionType = transmissionType;
@@ -29,6 +34,8 @@ public abstract class Car {
         this.engine = engine;
         this.electrics = electrics;
         this.headlights = headlights;
+        this.COUNTRY = country;
+        this.price = price;
     }
 
     /**
@@ -72,4 +79,16 @@ public abstract class Car {
         motion = false;
     }
 
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "color='" + color + '\'' +
+                ", price=" + price +
+                ", COUNTRY=" + COUNTRY +
+                '}';
+    }
 }

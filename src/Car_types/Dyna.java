@@ -1,13 +1,16 @@
 package Car_types;
 
 import Components.*;
+import Factory.Country;
+
+import java.math.BigDecimal;
 
 public class Dyna extends Car {
     //грузоподъемность
     private int liftingCapacity;
 
-    public Dyna(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int liftingCapacity) {
-        super(color, maxSpeed, Transmission.mechanics, wheels, gasTank, engine, electrics, headlights);
+    public Dyna(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int liftingCapacity, Country country, BigDecimal price) {
+        super(color, maxSpeed, Transmission.mechanics, wheels, gasTank, engine, electrics, headlights, country, price);
 
         this.liftingCapacity = liftingCapacity;
     }

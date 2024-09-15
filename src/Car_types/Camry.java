@@ -1,12 +1,16 @@
 package Car_types;
 
 import Components.*;
+import Factory.Country;
+
+import java.math.BigDecimal;
 
 public class Camry extends Car {
     private boolean isCruiseControlOn;
 
-    public Camry(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights) {
-        super(color, maxSpeed, Transmission.automatic, wheels, gasTank, engine, electrics, headlights);
+
+    public Camry(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
+        super(color, maxSpeed, Transmission.automatic, wheels, gasTank, engine, electrics, headlights, country ,price);
         this.isCruiseControlOn = false;
     }
     @Override

@@ -5,5 +5,6 @@ public enum Country {
     China,
     Germany,
     Italy,
-    USA;
+    USA,
+    JAPAN;
 }
