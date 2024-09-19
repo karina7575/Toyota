@@ -1,9 +1,6 @@
 package Factory;
 
-import Car_types.Camry;
-import Car_types.Dyna;
-import Car_types.Hiance;
-import Car_types.Solara;
+import Car_types.*;
 import Components.*;
 
 import java.math.BigDecimal;
@@ -43,6 +40,25 @@ public class AssemblyLine {
         }
     }
 
+    public <C extends Car> C createCar (CarTypes type, String color, BigDecimal price) {
+        switch (type) {
+            case SOLARA :
+                return createSolara(color, price);
+                break;
+            case CAMRY :
+                return createCamry(color, price);
+                break;
+            case DYNA :
+                return createDyna(color, price);
+                break;
+            case HIANCE :
+                return createHiance(color, price);
+                break;
+            default:
+                return null;
+        }
+    }
+
     public Camry createCamry (String color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
@@ -58,7 +74,6 @@ public class AssemblyLine {
             for (int i = 0; i < wheels.length; i++) {
                 wheels[i] = factory.makeWheels(WheelDiameter.SEVENTEEN);
             }
-            System.out.println(Arrays.toString(wheels));
             return new Camry(color, 200, wheels, gasTank, engine, electrics, headLights, ASSEMBLY_LINE_COUNTRY, price);
         }
     }
@@ -77,7 +92,6 @@ public class AssemblyLine {
             for (int i = 0; i < wheels.length; i++) {
                 wheels[i] = factory.makeWheels(WheelDiameter.SIXTEEN);
             }
-            System.out.println(Arrays.toString(wheels));
             return new Solara(color, 250, wheels, gasTank, engine, electrics, headLights, ASSEMBLY_LINE_COUNTRY, price);
         }
     }
@@ -96,7 +110,6 @@ public class AssemblyLine {
             for (int i = 0; i < wheels.length; i++) {
                 wheels[i] = factory.makeWheels(WheelDiameter.TWENTY);
             }
-            System.out.println(Arrays.toString(wheels));
             return new Dyna(color, 160, wheels, gasTank, engine, electrics, headLights, 400, ASSEMBLY_LINE_COUNTRY, price);
         }
     }
@@ -115,7 +128,6 @@ public class AssemblyLine {
             for (int i = 0; i < wheels.length; i++) {
                 wheels[i] = factory.makeWheels(WheelDiameter.TWENTY);
             }
-            System.out.println(Arrays.toString(wheels));
             return new Hiance(color, 200, wheels, gasTank, engine, electrics, headLights, 20, 900, ASSEMBLY_LINE_COUNTRY, price);
         }
     }

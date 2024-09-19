@@ -83,6 +83,10 @@ public abstract class Car {
         return price;
     }
 
+    public void setPrice(BigDecimal price) {
+        price = price;
+    }
+
     @Override
     public String toString() {
         return "Car{" +

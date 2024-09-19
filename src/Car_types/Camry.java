@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 
 public class Camry extends Car {
     private boolean isCruiseControlOn;
+    CarTypes carType = CarTypes.CAMRY;
 
 
     public Camry(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
@@ -50,4 +51,5 @@ public class Camry extends Car {
     public void musicOn () {
         System.out.println("Играет музыка");
     }
+
 }
