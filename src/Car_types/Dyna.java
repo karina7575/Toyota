@@ -26,7 +26,7 @@ public class Dyna extends Car {
     public boolean checkDiameterWheels(Wheel[] wheels) {
         int flag = 0;
         for (Wheel wheel : wheels) {
-            flag += (wheel.getDiameter() == WheelDiameter.TWENTY) ? 1 : 0;
+            flag += (wheel.getDiameter() == CarTypes.DYNA.getWheelDiameter()) ? 1 : 0;
         }
         if (flag == wheels.length) {
             return true;
@@ -42,9 +42,18 @@ public class Dyna extends Car {
     @Override
     public void setWheel(Wheel wheel){
         for (Wheel checkingWheel : wheels) {
-            if((wheel.getDiameter() == WheelDiameter.TWENTY) && (checkingWheel == null || checkingWheel.getIsPierced())) {
+            if((wheel.getDiameter() == CarTypes.DYNA.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
                 checkingWheel = wheel;
             }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Dyna{" +
+                "color='" + color + '\'' +
+                ", price=" + price +
+                ", COUNTRY=" + COUNTRY +
+                '}';
     }
 }

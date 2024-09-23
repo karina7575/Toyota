@@ -40,25 +40,6 @@ public class AssemblyLine {
         }
     }
 
-    public <C extends Car> C createCar (CarTypes type, String color, BigDecimal price) {
-        switch (type) {
-            case SOLARA :
-                return createSolara(color, price);
-                break;
-            case CAMRY :
-                return createCamry(color, price);
-                break;
-            case DYNA :
-                return createDyna(color, price);
-                break;
-            case HIANCE :
-                return createHiance(color, price);
-                break;
-            default:
-                return null;
-        }
-    }
-
     public Camry createCamry (String color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
@@ -72,7 +53,7 @@ public class AssemblyLine {
 
             Wheel[] wheels = new Wheel[4];
             for (int i = 0; i < wheels.length; i++) {
-                wheels[i] = factory.makeWheels(WheelDiameter.SEVENTEEN);
+                wheels[i] = factory.makeWheels(CarTypes.CAMRY.getWheelDiameter());
             }
             return new Camry(color, 200, wheels, gasTank, engine, electrics, headLights, ASSEMBLY_LINE_COUNTRY, price);
         }
@@ -90,7 +71,7 @@ public class AssemblyLine {
             Headlights headLights = factory.makeHeadlights();
             Wheel[] wheels = new Wheel[4];
             for (int i = 0; i < wheels.length; i++) {
-                wheels[i] = factory.makeWheels(WheelDiameter.SIXTEEN);
+                wheels[i] = factory.makeWheels(CarTypes.SOLARA.getWheelDiameter());
             }
             return new Solara(color, 250, wheels, gasTank, engine, electrics, headLights, ASSEMBLY_LINE_COUNTRY, price);
         }
@@ -108,7 +89,7 @@ public class AssemblyLine {
             Headlights headLights = factory.makeHeadlights();
             Wheel[] wheels = new Wheel[4];
             for (int i = 0; i < wheels.length; i++) {
-                wheels[i] = factory.makeWheels(WheelDiameter.TWENTY);
+                wheels[i] = factory.makeWheels(CarTypes.DYNA.getWheelDiameter());
             }
             return new Dyna(color, 160, wheels, gasTank, engine, electrics, headLights, 400, ASSEMBLY_LINE_COUNTRY, price);
         }
@@ -126,7 +107,7 @@ public class AssemblyLine {
             Headlights headLights = factory.makeHeadlights();
             Wheel[] wheels = new Wheel[4];
             for (int i = 0; i < wheels.length; i++) {
-                wheels[i] = factory.makeWheels(WheelDiameter.TWENTY);
+                wheels[i] = factory.makeWheels(CarTypes.HIANCE.getWheelDiameter());
             }
             return new Hiance(color, 200, wheels, gasTank, engine, electrics, headLights, 20, 900, ASSEMBLY_LINE_COUNTRY, price);
         }

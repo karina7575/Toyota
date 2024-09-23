@@ -29,7 +29,7 @@ public class ComponentsFactory {
         return new Headlights(false);
     }
 
-    public Wheel makeWheels (WheelDiameter diameter) {
+    public Wheel makeWheels (int diameter) {
         Wheel carWheel = new Wheel(diameter);
         return carWheel;
     }

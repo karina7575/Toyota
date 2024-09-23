@@ -2,14 +2,14 @@ package Components;
 
 public class Wheel {
     private boolean isPierced;
-    private WheelDiameter diameter;
+    private int diameter;
 
-    public Wheel(WheelDiameter diameter) {
+    public Wheel(int diameter) {
         this.diameter = diameter;
         this.isPierced = false;
     }
 
-    public WheelDiameter getDiameter() {
+    public int getDiameter() {
         return diameter;
     }
 

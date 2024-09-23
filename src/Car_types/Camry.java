@@ -18,7 +18,7 @@ public class Camry extends Car {
     public boolean checkDiameterWheels (Wheel[] wheels) {
         int flag = 0;
         for (Wheel wheel : wheels) {
-            flag += (wheel.getDiameter() == WheelDiameter.SEVENTEEN) ? 1 : 0;
+            flag += (wheel.getDiameter() == CarTypes.CAMRY.getWheelDiameter()) ? 1 : 0;
         }
         if (flag == wheels.length) {
             return true;
@@ -33,7 +33,7 @@ public class Camry extends Car {
     @Override
     public void setWheel(Wheel wheel){
         for (Wheel checkingWheel : wheels) {
-            if((wheel.getDiameter() == WheelDiameter.SEVENTEEN) && (checkingWheel == null || checkingWheel.getIsPierced())) {
+            if((wheel.getDiameter() == CarTypes.CAMRY.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
                 checkingWheel = wheel;
             }
         }
@@ -52,4 +52,12 @@ public class Camry extends Car {
         System.out.println("Играет музыка");
     }
 
+    @Override
+    public String toString() {
+        return "Camry{" +
+                "color='" + color + '\'' +
+                ", price=" + price +
+                ", COUNTRY=" + COUNTRY +
+                '}';
+    }
 }
