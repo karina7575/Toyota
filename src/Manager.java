@@ -1,6 +1,8 @@
 import Car_types.*;
 import Factory.AssemblyLine;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -100,12 +102,24 @@ public class Manager {
      * генерация отчета по продажам
      */
     public void makeReport () {
-        System.out.println("Имя менеджера: " + report.getManagerName());
-        System.out.println("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t");
-        System.out.println("------\t\t" + "-----------------\t\t" +"-------------\t");
-        for (Car car : report.getCelledCars()) {
-            System.out.println(car.getCarType() + "\t\t" + car.getPrice()+ "\t\t\t\t\t" + report.getPriceList().get(car.getCarType()));
-        }
+        final String PROJECT_PATH = "C:\\Users\\WPX99\\IdeaProjects\\First-project";
+        final String FILE_NAME = "report.txt";
+        final String PATH = PROJECT_PATH + "\\" + FILE_NAME;
+        BigDecimal income = BigDecimal.valueOf(0.0);
+        BigDecimal outcome = BigDecimal.valueOf(0.0);
+        try (FileWriter fileWriter = new FileWriter(PATH, true);) {
+            fileWriter.write("Имя менеджера: " + report.getManagerName());
+            fileWriter.write("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t");
+            fileWriter.write("------\t\t" + "-----------------\t\t" +"-------------\t");
+            for (Car car : report.getCelledCars()) {
+                income = income.add(car.getPrice());
+                outcome = outcome.add(report.getPrimeCost().get(car.getCarType()));
+                fileWriter.write(car.getCarType() + "\t\t" + car.getPrice() + "\t\t\t\t\t" + report.getPrimeCost().get(car.getCarType()));
+            }
+            fileWriter.write("Итог: Доходы - " + income + ", Расходы - " + outcome + ", Прибыль - " + income.subtract(outcome));
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
