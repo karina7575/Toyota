@@ -102,19 +102,16 @@ public class Manager {
      * генерация отчета по продажам
      */
     public void makeReport () {
-        final String PROJECT_PATH = "C:\\Users\\WPX99\\IdeaProjects\\First-project";
-        final String FILE_NAME = "report.txt";
-        final String PATH = PROJECT_PATH + "\\" + FILE_NAME;
         BigDecimal income = BigDecimal.valueOf(0.0);
         BigDecimal outcome = BigDecimal.valueOf(0.0);
-        try (FileWriter fileWriter = new FileWriter(PATH, true);) {
-            fileWriter.write("Имя менеджера: " + report.getManagerName());
-            fileWriter.write("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t");
-            fileWriter.write("------\t\t" + "-----------------\t\t" +"-------------\t");
+        try (FileWriter fileWriter = new FileWriter("report.txt", true);) {
+            fileWriter.write("Имя менеджера: " + report.getManagerName() + "\n");
+            fileWriter.write("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t"+ "\n");
+            fileWriter.write("------\t\t" + "-----------------\t\t" +"-------------\t"+ "\n");
             for (Car car : report.getCelledCars()) {
                 income = income.add(car.getPrice());
                 outcome = outcome.add(report.getPrimeCost().get(car.getCarType()));
-                fileWriter.write(car.getCarType() + "\t\t" + car.getPrice() + "\t\t\t\t\t" + report.getPrimeCost().get(car.getCarType()));
+                fileWriter.write(car.getCarType() + "\t\t" + car.getPrice() + "\t\t\t\t\t" + report.getPrimeCost().get(car.getCarType())+ "\n");
             }
             fileWriter.write("Итог: Доходы - " + income + ", Расходы - " + outcome + ", Прибыль - " + income.subtract(outcome));
 
