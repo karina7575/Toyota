@@ -8,8 +8,9 @@ import java.math.BigDecimal;
 public class Dyna extends Car {
     //грузоподъемность
     private int liftingCapacity;
+    CarTypes carType = CarTypes.DYNA;
 
-    public Dyna(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int liftingCapacity, Country country, BigDecimal price) {
+    public Dyna(Color color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int liftingCapacity, Country country, BigDecimal price) {
         super(color, maxSpeed, Transmission.mechanics, wheels, gasTank, engine, electrics, headlights, country, price);
 
         this.liftingCapacity = liftingCapacity;
@@ -55,5 +56,8 @@ public class Dyna extends Car {
                 ", price=" + price +
                 ", COUNTRY=" + COUNTRY +
                 '}';
+    }
+    public CarTypes getCarType() {
+        return carType;
     }
 }

@@ -8,8 +8,9 @@ import java.math.BigDecimal;
 public class Solara extends Car {
     private boolean isCruiseControlOn;
     private boolean topIsClosed;
+    CarTypes carType = CarTypes.SOLARA;
 
-    public Solara(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
+    public Solara(Color color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
         super(color, maxSpeed, Transmission.robot, wheels, gasTank, engine, electrics, headlights, country, price);
         this.isCruiseControlOn = false;
         this.topIsClosed = true;
@@ -66,5 +67,8 @@ public class Solara extends Car {
                 ", price=" + price +
                 ", COUNTRY=" + COUNTRY +
                 '}';
+    }
+    public CarTypes getCarType() {
+        return carType;
     }
 }

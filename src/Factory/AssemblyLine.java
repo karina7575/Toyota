@@ -40,7 +40,7 @@ public class AssemblyLine {
         }
     }
 
-    public Camry createCamry (String color, BigDecimal price) {
+    public Camry createCamry (Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
@@ -59,7 +59,7 @@ public class AssemblyLine {
         }
     }
 
-    public Solara createSolara (String color, BigDecimal price) {
+    public Solara createSolara (Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
@@ -77,7 +77,7 @@ public class AssemblyLine {
         }
     }
 
-    public Dyna createDyna (String color, BigDecimal price) {
+    public Dyna createDyna (Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
@@ -95,7 +95,7 @@ public class AssemblyLine {
         }
     }
 
-    public Hiance createHiance (String color, BigDecimal price) {
+    public Hiance createHiance (Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;

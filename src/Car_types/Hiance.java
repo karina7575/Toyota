@@ -9,8 +9,9 @@ public class Hiance extends Car {
     //грузоподъемность
     private int liftingCapacity;
     private Wheel spareWheel;
+    CarTypes carType = CarTypes.HIANCE;
 
-    public Hiance(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int diameterSpareWheel, int liftingCapacity, Country country, BigDecimal price) {
+    public Hiance(Color color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, int diameterSpareWheel, int liftingCapacity, Country country, BigDecimal price) {
         super(color, maxSpeed, Transmission.mechanics, wheels, gasTank, engine, electrics, headlights, country, price);
         this.liftingCapacity = liftingCapacity;
         this.spareWheel = new Wheel(CarTypes.HIANCE.getWheelDiameter());
@@ -48,5 +49,8 @@ public class Hiance extends Car {
                 ", price=" + price +
                 ", COUNTRY=" + COUNTRY +
                 '}';
+    }
+    public CarTypes getCarType() {
+        return carType;
     }
 }

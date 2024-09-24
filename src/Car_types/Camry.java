@@ -10,7 +10,7 @@ public class Camry extends Car {
     CarTypes carType = CarTypes.CAMRY;
 
 
-    public Camry(String color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
+    public Camry(Color color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
         super(color, maxSpeed, Transmission.automatic, wheels, gasTank, engine, electrics, headlights, country ,price);
         this.isCruiseControlOn = false;
     }
@@ -59,5 +59,9 @@ public class Camry extends Car {
                 ", price=" + price +
                 ", COUNTRY=" + COUNTRY +
                 '}';
+    }
+
+    public CarTypes getCarType() {
+        return carType;
     }
 }

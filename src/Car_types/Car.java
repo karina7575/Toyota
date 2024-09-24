@@ -6,7 +6,7 @@ import Factory.Country;
 import java.math.BigDecimal;
 
 public abstract class Car {
-    protected String color;
+    protected Color color;
     protected int maxSpeed;
     protected Transmission transmissionType;
     protected boolean motion;
@@ -19,7 +19,7 @@ public abstract class Car {
     protected BigDecimal price;
     protected final Country COUNTRY;
 
-    public Car(String color, int maxSpeed, Transmission transmissionType, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
+    public Car(Color color, int maxSpeed, Transmission transmissionType, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
         this.color = color;
         this.maxSpeed = maxSpeed;
         this.transmissionType = transmissionType;
@@ -95,4 +95,5 @@ public abstract class Car {
                 ", COUNTRY=" + COUNTRY +
                 '}';
     }
+    public abstract CarTypes getCarType ();
 }

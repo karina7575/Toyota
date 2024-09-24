@@ -7,11 +7,12 @@ import java.util.*;
 
 public class Manager {
 
-    //private TreeMap <CarTypes, BigDecimal> prices = new TreeMap<>(Comparator.comparing(o -> o.getCost()));
     private TreeMap <CarTypes, BigDecimal> prices;
+    private Report report;
 
 
-    public Manager() {
+    public Manager(String name) {
+        report = new Report(name);
         prices = new TreeMap<>(new Comparator<CarTypes>() {
             @Override
             public int compare(CarTypes type1, CarTypes type2) {
@@ -30,10 +31,9 @@ public class Manager {
         prices.put(CarTypes.CAMRY, CarTypes.CAMRY.getCost());
         prices.put(CarTypes.DYNA, CarTypes.DYNA.getCost());
         prices.put(CarTypes.HIANCE, CarTypes.HIANCE.getCost());
-
     }
 
-    public <C extends Car> C cellCar (BigDecimal money, Warehouse warehouse, AssemblyLine assemblyLine, String color, Cashier cashier) {
+    public <C extends Car> C cellCar (BigDecimal money, Warehouse warehouse, AssemblyLine assemblyLine, Color color, Cashier cashier) {
         CarTypes carType = null;
         C car = null;
         //проверяем на что у клиента хватает денег
@@ -48,6 +48,7 @@ public class Manager {
                 }
                 System.out.println("Вы приобрели машину " + car + carType);
                 cashier.acceptOrder(car);
+                report.addCelledCars(car, item.getValue());
                 return car;
             }
         }
@@ -91,6 +92,20 @@ public class Manager {
         C carFromAssemblyLine = warehouse.getCar(carType);
         System.out.println("Вы приобрели машину с завода " + carFromAssemblyLine);
         cashier.acceptOrder(carFromAssemblyLine);
+        report.addCelledCars(carFromAssemblyLine, carType.getCost().multiply(BigDecimal.valueOf(1.1)));
         return carFromAssemblyLine;
+    }
+
+    /**
+     * генерация отчета по продажам
+     */
+    public void makeReport () {
+        System.out.println("Имя менеджера: " + report.getManagerName());
+        System.out.println("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t");
+        System.out.println("------\t\t" + "-----------------\t\t" +"-------------\t");
+        for (Car car : report.getCelledCars()) {
+            System.out.println(car.getCarType() + "\t\t" + car.getPrice()+ "\t\t\t\t\t" + report.getPriceList().get(car.getCarType()));
+        }
+
     }
 }
