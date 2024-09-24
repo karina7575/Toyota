@@ -1,3 +1,5 @@
+package Dealer;
+
 import Car_types.*;
 import Factory.AssemblyLine;
 
@@ -9,7 +11,7 @@ import java.util.*;
 
 public class Manager {
 
-    private TreeMap <CarTypes, BigDecimal> prices;
+    private TreeMap<CarTypes, BigDecimal> prices;
     private Report report;
 
 
@@ -20,11 +22,9 @@ public class Manager {
             public int compare(CarTypes type1, CarTypes type2) {
                 if (type1.getCost().max(type2.getCost()).equals(type1.getCost())) {
                     return -1;
-                }
-                else if (type1.getCost().max(type2.getCost()).equals(type2.getCost())) {
+                } else if (type1.getCost().max(type2.getCost()).equals(type2.getCost())) {
                     return 1;
-                }
-                else {
+                } else {
                     return 0;
                 }
             }
@@ -35,7 +35,7 @@ public class Manager {
         prices.put(CarTypes.HIANCE, CarTypes.HIANCE.getCost());
     }
 
-    public <C extends Car> C cellCar (BigDecimal money, Warehouse warehouse, AssemblyLine assemblyLine, Color color, Cashier cashier) {
+    public <C extends Car> C cellCar(BigDecimal money, Warehouse warehouse, AssemblyLine assemblyLine, Color color, Cashier cashier) {
         CarTypes carType = null;
         C car = null;
         //проверяем на что у клиента хватает денег
@@ -101,17 +101,17 @@ public class Manager {
     /**
      * генерация отчета по продажам
      */
-    public void makeReport () {
+    public void makeReport() {
         BigDecimal income = BigDecimal.valueOf(0.0);
         BigDecimal outcome = BigDecimal.valueOf(0.0);
         try (FileWriter fileWriter = new FileWriter("report.txt", true);) {
             fileWriter.write("Имя менеджера: " + report.getManagerName() + "\n");
-            fileWriter.write("Модель\t\t" + "Стоимость продажи\t\t" +"Себестоимость\t"+ "\n");
-            fileWriter.write("------\t\t" + "-----------------\t\t" +"-------------\t"+ "\n");
+            fileWriter.write("Модель\t\t" + "Стоимость продажи\t\t" + "Себестоимость\t" + "\n");
+            fileWriter.write("------\t\t" + "-----------------\t\t" + "-------------\t" + "\n");
             for (Car car : report.getCelledCars()) {
                 income = income.add(car.getPrice());
                 outcome = outcome.add(report.getPrimeCost().get(car.getCarType()));
-                fileWriter.write(car.getCarType() + "\t\t" + car.getPrice() + "\t\t\t\t\t" + report.getPrimeCost().get(car.getCarType())+ "\n");
+                fileWriter.write(car.getCarType() + "\t\t" + car.getPrice() + "\t\t\t\t\t" + report.getPrimeCost().get(car.getCarType()) + "\n");
             }
             fileWriter.write("Итог: Доходы - " + income + ", Расходы - " + outcome + ", Прибыль - " + income.subtract(outcome));
 

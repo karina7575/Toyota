@@ -11,29 +11,30 @@ public class Camry extends Car {
 
 
     public Camry(Color color, int maxSpeed, Wheel[] wheels, GasTank gasTank, Engine engine, Electrics electrics, Headlights headlights, Country country, BigDecimal price) {
-        super(color, maxSpeed, Transmission.automatic, wheels, gasTank, engine, electrics, headlights, country ,price);
+        super(color, maxSpeed, Transmission.automatic, wheels, gasTank, engine, electrics, headlights, country, price);
         this.isCruiseControlOn = false;
     }
+
     @Override
-    public boolean checkDiameterWheels (Wheel[] wheels) {
+    public boolean checkDiameterWheels(Wheel[] wheels) {
         int flag = 0;
         for (Wheel wheel : wheels) {
             flag += (wheel.getDiameter() == CarTypes.CAMRY.getWheelDiameter()) ? 1 : 0;
         }
         if (flag == wheels.length) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     /**
      * установка нового колеса
      */
     @Override
-    public void setWheel(Wheel wheel){
+    public void setWheel(Wheel wheel) {
         for (Wheel checkingWheel : wheels) {
-            if((wheel.getDiameter() == CarTypes.CAMRY.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
+            if ((wheel.getDiameter() == CarTypes.CAMRY.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
                 checkingWheel = wheel;
             }
         }
@@ -45,10 +46,11 @@ public class Camry extends Car {
     public void setCruiseControl(boolean cruiseControlOn) {
         isCruiseControlOn = cruiseControlOn;
     }
+
     /**
      * функция подключения музыки
      */
-    public void musicOn () {
+    public void musicOn() {
         System.out.println("Играет музыка");
     }
 

@@ -24,18 +24,18 @@ public class Solara extends Car {
         }
         if (flag == wheels.length) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
+
     /**
      * установка нового колеса
      */
     @Override
-    public void setWheel(Wheel wheel){
+    public void setWheel(Wheel wheel) {
         for (Wheel checkingWheel : wheels) {
-            if((wheel.getDiameter() == CarTypes.SOLARA.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
+            if ((wheel.getDiameter() == CarTypes.SOLARA.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
                 checkingWheel = wheel;
             }
         }
@@ -47,12 +47,14 @@ public class Solara extends Car {
     public void setCruiseControl(boolean cruiseControlOn) {
         isCruiseControlOn = cruiseControlOn;
     }
+
     /**
      * возможность опустить или поднять крышу
      */
     public void setTop(boolean topCondition) {
         topIsClosed = topCondition;
     }
+
     /**
      * функция охладить напиток
      */
@@ -68,6 +70,7 @@ public class Solara extends Car {
                 ", COUNTRY=" + COUNTRY +
                 '}';
     }
+
     public CarTypes getCarType() {
         return carType;
     }

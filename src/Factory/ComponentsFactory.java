@@ -13,11 +13,11 @@ public class ComponentsFactory {
         return factoryCountry;
     }
 
-    public Electrics makeElectrics () {
+    public Electrics makeElectrics() {
         return new Electrics(true);
     }
 
-    public Engine makeEngine () {
+    public Engine makeEngine() {
         return new Engine(true);
     }
 
@@ -29,7 +29,7 @@ public class ComponentsFactory {
         return new Headlights(false);
     }
 
-    public Wheel makeWheels (int diameter) {
+    public Wheel makeWheels(int diameter) {
         Wheel carWheel = new Wheel(diameter);
         return carWheel;
     }

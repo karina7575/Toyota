@@ -19,7 +19,7 @@ public class AssemblyLine {
 
     public void setFactory(ComponentsFactory factory) {
         try {
-            if(checkCountries (factory.getFactoryCountry(), this.ASSEMBLY_LINE_COUNTRY)) {
+            if (checkCountries(factory.getFactoryCountry(), this.ASSEMBLY_LINE_COUNTRY)) {
                 this.factory = factory;
             }
         } catch (CountyFactoryNotEqualException e) {
@@ -31,21 +31,19 @@ public class AssemblyLine {
         return factory;
     }
 
-    private boolean checkCountries (Country factoryCountry, Country assemblyCountry) throws CountyFactoryNotEqualException {
-        if(factoryCountry.equals(assemblyCountry)){
+    private boolean checkCountries(Country factoryCountry, Country assemblyCountry) throws CountyFactoryNotEqualException {
+        if (factoryCountry.equals(assemblyCountry)) {
             return true;
-        }
-        else {
+        } else {
             throw new CountyFactoryNotEqualException();
         }
     }
 
-    public Camry createCamry (Color color, BigDecimal price) {
+    public Camry createCamry(Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
-        }
-        else {
+        } else {
             GasTank gasTank = factory.makeGasTank();
             Engine engine = factory.makeEngine();
             Electrics electrics = factory.makeElectrics();
@@ -59,12 +57,11 @@ public class AssemblyLine {
         }
     }
 
-    public Solara createSolara (Color color, BigDecimal price) {
+    public Solara createSolara(Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
-        }
-        else {
+        } else {
             GasTank gasTank = factory.makeGasTank();
             Engine engine = factory.makeEngine();
             Electrics electrics = factory.makeElectrics();
@@ -77,12 +74,11 @@ public class AssemblyLine {
         }
     }
 
-    public Dyna createDyna (Color color, BigDecimal price) {
+    public Dyna createDyna(Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
-        }
-        else {
+        } else {
             GasTank gasTank = factory.makeGasTank();
             Engine engine = factory.makeEngine();
             Electrics electrics = factory.makeElectrics();
@@ -95,12 +91,11 @@ public class AssemblyLine {
         }
     }
 
-    public Hiance createHiance (Color color, BigDecimal price) {
+    public Hiance createHiance(Color color, BigDecimal price) {
         if (this.factory == null) {
             System.out.println("Сборочный конвейер не использует никакой завод, сначала выберите завод той же страны");
             return null;
-        }
-        else {
+        } else {
             GasTank gasTank = factory.makeGasTank();
             Engine engine = factory.makeEngine();
             Electrics electrics = factory.makeElectrics();
@@ -112,8 +107,6 @@ public class AssemblyLine {
             return new Hiance(color, 200, wheels, gasTank, engine, electrics, headLights, 20, 900, ASSEMBLY_LINE_COUNTRY, price);
         }
     }
-
-
 
 
 }

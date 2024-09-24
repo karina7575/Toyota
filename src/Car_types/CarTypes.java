@@ -3,10 +3,10 @@ package Car_types;
 import java.math.BigDecimal;
 
 public enum CarTypes {
-    CAMRY (BigDecimal.valueOf(10000), 17),
-    SOLARA (BigDecimal.valueOf(12000), 16),
-    HIANCE (BigDecimal.valueOf(15000), 20),
-    DYNA (BigDecimal.valueOf(22000), 20);
+    CAMRY(BigDecimal.valueOf(10000), 17),
+    SOLARA(BigDecimal.valueOf(12000), 16),
+    HIANCE(BigDecimal.valueOf(15000), 20),
+    DYNA(BigDecimal.valueOf(22000), 20);
 
     private BigDecimal cost;
     private int wheelDiameter;

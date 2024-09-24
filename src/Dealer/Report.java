@@ -1,15 +1,16 @@
+package Dealer;
+
 import Car_types.Car;
 import Car_types.CarTypes;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.EnumMap;
-import java.util.HashMap;
 
 public class Report {
     private String managerName;
     private EnumMap<CarTypes, BigDecimal> primeCost = new EnumMap<>(CarTypes.class);
-    private ArrayList <Car> celledCars;
+    private ArrayList<Car> celledCars;
 
     public Report(String managerName) {
         this.managerName = managerName;

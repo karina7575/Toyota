@@ -1,12 +1,12 @@
 import Car_types.*;
-import Components.*;
+import Dealer.Cashier;
+import Dealer.Manager;
+import Dealer.Warehouse;
 import Factory.AssemblyLine;
 import Factory.ComponentsFactory;
 import Factory.Country;
-import org.w3c.dom.ls.LSOutput;
 
 import java.math.BigDecimal;
-import java.util.*;
 
 public class Runner {
     public static void main(String[] args) {
@@ -44,8 +44,6 @@ public class Runner {
         manager.cellCar(customer6.getMoney(), warehouse, assemblyLine, Color.BLACK, cashier);
         manager.cellCar(customer7.getMoney(), warehouse, assemblyLine, Color.BLACK, cashier);
         manager.cellCar(customer8.getMoney(), warehouse, assemblyLine, Color.BLACK, cashier);
-
-        System.out.println(cashier.getCash());
 
         manager.makeReport();
     }

@@ -19,7 +19,7 @@ public class Dyna extends Car {
     /**
      * функция зарядить телефон
      */
-    public void chargePhone () {
+    public void chargePhone() {
         System.out.println("Телефон заряжен");
     }
 
@@ -31,8 +31,7 @@ public class Dyna extends Car {
         }
         if (flag == wheels.length) {
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -41,9 +40,9 @@ public class Dyna extends Car {
      * установка нового колеса
      */
     @Override
-    public void setWheel(Wheel wheel){
+    public void setWheel(Wheel wheel) {
         for (Wheel checkingWheel : wheels) {
-            if((wheel.getDiameter() == CarTypes.DYNA.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
+            if ((wheel.getDiameter() == CarTypes.DYNA.getWheelDiameter()) && (checkingWheel == null || checkingWheel.getIsPierced())) {
                 checkingWheel = wheel;
             }
         }
@@ -57,6 +56,7 @@ public class Dyna extends Car {
                 ", COUNTRY=" + COUNTRY +
                 '}';
     }
+
     public CarTypes getCarType() {
         return carType;
     }

@@ -24,10 +24,9 @@ public abstract class Car {
         this.maxSpeed = maxSpeed;
         this.transmissionType = transmissionType;
         this.motion = false;
-        if(checkDiameterWheels(wheels)) {
+        if (checkDiameterWheels(wheels)) {
             this.wheels = wheels;
-        }
-        else {
+        } else {
             System.out.println("Диаметр колес не подходит для данной модели автомобиля.");
         }
         this.gasTank = gasTank;
@@ -41,7 +40,7 @@ public abstract class Car {
     /**
      * проверка колес на диаметр
      */
-    public abstract boolean checkDiameterWheels (Wheel[] wheels);
+    public abstract boolean checkDiameterWheels(Wheel[] wheels);
 
     /**
      * установка нового колеса
@@ -51,11 +50,10 @@ public abstract class Car {
     /**
      * движение автомобиля
      */
-    public void go () throws StartCarException {
+    public void go() throws StartCarException {
         if (checkWheels() && gasTank.getAmountOfGasoline() > 0 && electrics.isFunctional() && engine.isFunctional()) {
             motion = true;
-        }
-        else {
+        } else {
             throw new StartCarException();
         }
     }
@@ -63,9 +61,9 @@ public abstract class Car {
     /**
      * проверка колес на целостность
      */
-    public boolean checkWheels () {
+    public boolean checkWheels() {
         for (int i = 0; i < COUNT_OF_WHEELS; i++) {
-            if(wheels[i] == null && wheels[i].getIsPierced()) {
+            if (wheels[i] == null && wheels[i].getIsPierced()) {
                 return false;
             }
         }
@@ -75,7 +73,7 @@ public abstract class Car {
     /**
      * остановка автомобиля
      */
-    public void stop () {
+    public void stop() {
         motion = false;
     }
 
@@ -95,5 +93,6 @@ public abstract class Car {
                 ", COUNTRY=" + COUNTRY +
                 '}';
     }
-    public abstract CarTypes getCarType ();
+
+    public abstract CarTypes getCarType();
 }
